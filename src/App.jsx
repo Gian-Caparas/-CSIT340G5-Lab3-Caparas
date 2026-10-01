@@ -2,35 +2,30 @@ const Header = ({ course }) => {
   return <h1>{course}</h1>
 }
 
-const Part = ({ name, units }) => {
-  return <p>{name} — {units} units</p>
+const Part = ({ part }) => {
+  return <p>{part.name} - {part.units} units</p>
 }
 
-const Content = ({
-  part1,
-  units1,
-  part2,
-  units2,
-  part3,
-  units3,
-}) => {
+const Content = ({ part1, part2, part3 }) => {
   return (
     <div>
-      <Part name={part1} units={units1} />
-      <Part name={part2} units={units2} />
-      <Part name={part3} units={units3} />
+      <Part part = {part1}/>
+      <Part part = {part2}/>
+      <Part part = {part3}/>
     </div>
   )
 }
 
-const Total = ({ units1, units2, units3 }) => {
-  return <p>Total units: {units1 + units2 + units3}</p>
+const Total = ({ part1, part2, part3})  => {
+  return (
+    <p>Total units: {part1.units + part2.units + part3.units}</p>
+  )
 }
 
-const Footer = ({ fullName, courseCode, section }) => {
-  return (
+const Footer = ({ fullname, courseCode, section}) => {
+  return ( 
     <footer>
-      <p>{fullName} - {courseCode} - {section}</p>
+      <p>{fullname} - {courseCode} - {section}</p>
     </footer>
   )
 }
@@ -38,14 +33,20 @@ const Footer = ({ fullName, courseCode, section }) => {
 const App = () => {
   const course = 'INFORMATION TECHNOLOGY'
 
-  const part1 = 'CSIT321 - APP DEVELOPMENT'
-  const units1 = 3
+  const part1 = {
+    name: 'CSIT321 - APP DEVELOPMENT',
+    units: 3,
+  }
 
-  const part2 = 'CSIT340 - INDUSTRY ELECTIVE'
-  const units2 = 3
+  const part2 = {
+    name: 'CSIT340 - INDUSTRY ELECTIVE',
+    units: 3,
+  }
 
-  const part3 = 'CSIT327 - INFORMATION MANAGEMENT'
-  const units3 = 3
+  const part3 = {
+    name: 'CSIT327 - INFORMATION MANAGEMENT',
+    units: 3,
+  }
 
   const fullName = 'Gian Joebert B. Caparas'
   const courseCode = 'CSIT340'
@@ -53,25 +54,22 @@ const App = () => {
 
   return (
     <div>
-      <Header course={course} />
+      <Header  course={course}/>
 
       <Content
         part1={part1}
-        units1={units1}
         part2={part2}
-        units2={units2}
         part3={part3}
-        units3={units3}
       />
 
       <Total
-        units1={units1}
-        units2={units2}
-        units3={units3}
+        part1={part1}
+        part2={part2}
+        part3={part3}
       />
 
       <Footer
-        fullName={fullName}
+        fullname={fullName}
         courseCode={courseCode}
         section={section}
       />
