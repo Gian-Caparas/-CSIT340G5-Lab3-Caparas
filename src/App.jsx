@@ -31,22 +31,23 @@ const Footer = ({ fullname, courseCode, section}) => {
 }
 
 const App = () => {
-  const course = 'INFORMATION TECHNOLOGY'
-
-  const parts = [
-    {
-      name: 'CSIT321 - APP DEVELOPMENT',
-      units: 3,
-    },
-    {
-      name: 'CSIT340 - INDUSTRY ELECTIVE',
-      units: 3,   
-    },
-    {
-      name: 'CSIT327 - INFORMATION MANAGEMENT',
-      units: 3,
-    },
-  ]
+    const course = {
+        name: 'INFORMATION TECHNOLOGY',
+        parts: [
+        {
+          name: 'CSIT321 - APP DEVELOPMENT',
+          units: 3,
+        },
+        {
+          name: 'CSIT340 - INDUSTRY ELECTIVE',
+          units: 3,   
+        },
+        {
+          name: 'CSIT327 - INFORMATION MANAGEMENT',
+          units: 3,
+        },
+      ],
+  }
 
   const fullName = 'Gian Joebert B. Caparas'
   const courseCode = 'CSIT340'
@@ -54,9 +55,9 @@ const App = () => {
 
   return (
     <div>
-      <Header course = {course}/>
-      <Content parts  = {parts}/>
-      <Total parts = {parts}/>
+      <Header course = {course.name}/>
+      <Content parts  = {course.parts}/>
+      <Total parts = {course.parts}/>
 
       <Footer
         fullname={fullName}
