@@ -6,19 +6,19 @@ const Part = ({ part }) => {
   return <p>{part.name} - {part.units} units</p>
 }
 
-const Content = ({ part1, part2, part3 }) => {
+const Content = ({ parts }) => {
   return (
     <div>
-      <Part part = {part1}/>
-      <Part part = {part2}/>
-      <Part part = {part3}/>
+      <Part part = {parts[0]}/>
+      <Part part = {parts[1]}/>
+      <Part part = {parts[2]}/>
     </div>
   )
 }
 
-const Total = ({ part1, part2, part3})  => {
+const Total = ({ parts })  => {
   return (
-    <p>Total units: {part1.units + part2.units + part3.units}</p>
+    <p>Total units: {parts[0].units + parts[1].units + parts[2].units}</p>
   )
 }
 
@@ -33,20 +33,20 @@ const Footer = ({ fullname, courseCode, section}) => {
 const App = () => {
   const course = 'INFORMATION TECHNOLOGY'
 
-  const part1 = {
-    name: 'CSIT321 - APP DEVELOPMENT',
-    units: 3,
-  }
-
-  const part2 = {
-    name: 'CSIT340 - INDUSTRY ELECTIVE',
-    units: 3,
-  }
-
-  const part3 = {
-    name: 'CSIT327 - INFORMATION MANAGEMENT',
-    units: 3,
-  }
+  const parts = [
+    {
+      name: 'CSIT321 - APP DEVELOPMENT',
+      units: 3,
+    },
+    {
+      name: 'CSIT340 - INDUSTRY ELECTIVE',
+      units: 3,   
+    },
+    {
+      name: 'CSIT327 - INFORMATION MANAGEMENT',
+      units: 3,
+    },
+  ]
 
   const fullName = 'Gian Joebert B. Caparas'
   const courseCode = 'CSIT340'
@@ -54,19 +54,9 @@ const App = () => {
 
   return (
     <div>
-      <Header  course={course}/>
-
-      <Content
-        part1={part1}
-        part2={part2}
-        part3={part3}
-      />
-
-      <Total
-        part1={part1}
-        part2={part2}
-        part3={part3}
-      />
+      <Header course = {course}/>
+      <Content parts  = {parts}/>
+      <Total parts = {parts}/>
 
       <Footer
         fullname={fullName}
