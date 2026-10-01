@@ -1,121 +1,77 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+const Header = ({ course }) => {
+  return <h1>{course}</h1>
+}
 
-function App() {
-  const [count, setCount] = useState(0)
+const Content = ({
+  part1,
+  units1,
+  part2,
+  units2,
+  part3,
+  units3,
+}) => {
+  return (
+    <div>
+      <p>{part1} — {units1} units</p>
+      <p>{part2} — {units2} units</p>
+      <p>{part3} — {units3} units</p>
+    </div>
+  )
+}
+
+const Total = ({ units1, units2, units3 }) => {
+  return <p>Total units: {units1 + units2 + units3}</p>
+}
+
+const Footer = ({ fullName, courseCode, section }) => {
+  return (
+    <footer>
+      <p>{fullName} - {courseCode} - {section}</p>
+    </footer>
+  )
+}
+
+const App = () => {
+  const course = 'INFORMATION TECHNOLOGY'
+
+  const part1 = 'CSIT321 - APP DEVELOPMENT'
+  const units1 = 3
+
+  const part2 = 'CSIT340 - INDUSTRY ELECTIVE'
+  const units2 = 3
+
+  const part3 = 'CSIT327 - INFORMATION MANAGEMENT'
+  const units3 = 3
+
+  const fullName = 'Gian Joebert B. Caparas'
+  const courseCode = 'CSIT340'
+  const section = 'G5'
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div>
+      <Header course={course} />
 
-      <div className="ticks"></div>
+      <Content
+        part1={part1}
+        units1={units1}
+        part2={part2}
+        units2={units2}
+        part3={part3}
+        units3={units3}
+      />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <Total
+        units1={units1}
+        units2={units2}
+        units3={units3}
+      />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <Footer
+        fullName={fullName}
+        courseCode={courseCode}
+        section={section}
+      />
+    </div>
   )
 }
 
